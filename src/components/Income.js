@@ -7,15 +7,15 @@ export default class Income extends Component {
             <div className="m-2" >
               <label htmlFor="income">Доход:</label>
               <div className="input-group">
-                <div className="input-group-prepend">
-                  <span className="input-group-text">RUB</span>
-                </div>
                 <input
                  type="number"
                  className="form-control"
                  id="income"
                  onChange={this.props.handleChangeIncome}
                  value={this.props.income}/>
+                <div className="input-group-append">
+                  <span className="input-group-text">RUB</span>
+                </div>
               </div>
             </div>
             <div className="m-2" >
