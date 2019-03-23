@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 export default class Income extends Component {
   render() {
     return (
-        <div className="d-flex">
-            <div>
-              <label htmlFor="income">Доход</label>
+        <div className="d-flex flex-wrap">
+            <div className="m-2" >
+              <label htmlFor="income">Доход:</label>
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">RUB</span>
@@ -18,8 +18,8 @@ export default class Income extends Component {
                  value={this.props.income}/>
               </div>
             </div>
-            <div className="ml-3" >
-              <label htmlFor="days">Количество дней</label>
+            <div className="m-2" >
+              <label htmlFor="days">Количество дней:</label>
               <div className="input-group">
                 <input
                  type="number"
@@ -29,6 +29,25 @@ export default class Income extends Component {
                  value={this.props.days}/>
                 <div className="input-group-append">
                   <span className="input-group-text">Дней</span>
+                </div>
+              </div>
+            </div>
+            <div className="m-2" >
+              <label htmlFor="days">Процент накоплений:</label>
+              <div className="input-group">
+                <select
+                 class="custom-select"
+                 id="inputGroupSelect01"
+                 defaultValue={this.props.percentStorage}
+                 onChange={this.props.percentStorageSelect} >
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="25">25</option>
+                  <option value="30">30</option>
+                </select>
+                <div className="input-group-append">
+                  <span className="input-group-text">%</span>
                 </div>
               </div>
             </div>
