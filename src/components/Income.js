@@ -40,6 +40,7 @@ export default class Income extends Component {
                  id="inputGroupSelect01"
                  defaultValue={this.props.percentStorage}
                  onChange={this.props.percentStorageSelect} >
+                  <option value="0">0</option>
                   <option value="10">10</option>
                   <option value="15">15</option>
                   <option value="20">20</option>
