@@ -116,7 +116,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <h3 className="" >Расчёт доходности</h3>
+          <h3 className="" >Расчёт накоплений и трат</h3>
         </header>
         <section className="m-3 text-left">
           <Income
@@ -135,7 +135,9 @@ class App extends Component {
           <Total
            storage={this.state.total.storage}
            balance={this.state.total.balance}
-           budget={this.state.total.budget} ></Total>
+           budget={this.state.total.budget}
+           days={this.state.days}
+           percentStorage={this.state.percentStorage} ></Total>
         </section>
         <footer></footer>
       </div>
