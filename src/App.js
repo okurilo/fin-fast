@@ -24,23 +24,23 @@ class App extends Component {
     };
   }
   handleChangeIncome = (event) => {
-    let value = parseInt( event.target.value, 10 ) || 0;
-    event.target.value = +event.target.value;
+    let value = parseInt( event.target.value, 10 ) || '';
+    // event.target.value = +event.target.value;
     value = value || 0;
     this.setState({income: value }, function () {
       this._updateTotal();
     });
   }
   handleChangeDays = (event) => {
-    let value = parseInt( event.target.value, 10 ) || 0;
-    event.target.value = +event.target.value;
+    let value = parseInt( event.target.value, 10 ) || '';
+    // event.target.value = +event.target.value;
     value = value || 0;
     this.setState({days: value }, function () {
       this._updateTotal();
     });
   }
   percentStorageSelect = (event) => {
-    let value = parseInt( event.target.value, 10 ) || 0;
+    let value = parseInt( event.target.value, 10 );
     // event.target.value = +event.target.value;
     // value = value || 0;
     this.setState({percentStorage: value }, function () {
@@ -79,9 +79,10 @@ class App extends Component {
     });
   }
   handleChangeCostValue = (event) => {
+    // event.preventDefault();
     const id = +event.target.id;
-    const value = parseInt( event.target.value, 10 ) || 0;
-    event.target.value = +event.target.value;
+    const value = parseInt( event.target.value, 10 ) || '';
+    // event.target.value = +event.target.value;
     let costs = [...this.state.costs];
     costs.forEach((el) => {
       if (el.id === id) {

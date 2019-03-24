@@ -8,7 +8,7 @@ export default class Income extends Component {
               <label htmlFor="income">Доход:</label>
               <div className="input-group">
                 <input
-                 type="number"
+                 type="text"
                  className="form-control"
                  id="income"
                  onChange={this.props.handleChangeIncome}
@@ -22,7 +22,7 @@ export default class Income extends Component {
               <label htmlFor="days">Количество дней:</label>
               <div className="input-group">
                 <input
-                 type="number"
+                 type="text"
                  className="form-control"
                  id="days"
                  onChange={this.props.handleChangeDays}
