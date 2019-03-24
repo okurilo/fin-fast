@@ -131,7 +131,7 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <h3 className="" >Расчёт бюджета</h3>
+          <h3 className="text-light" >Расчёт бюджета</h3>
         </header>
         <section className="m-3 text-left">
           <Income

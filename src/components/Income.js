@@ -5,7 +5,7 @@ export default class Income extends Component {
     return (
         <div className="d-flex flex-wrap">
             <div className="m-2" >
-              <label htmlFor="income">Доход:</label>
+              <label className="text-light" htmlFor="income">Доход:</label>
               <div className="input-group">
                 <input
                  type="text"
@@ -19,7 +19,7 @@ export default class Income extends Component {
               </div>
             </div>
             <div className="m-2" >
-              <label htmlFor="days">Количество дней:</label>
+              <label className="text-light" htmlFor="days">Количество дней:</label>
               <div className="input-group">
                 <input
                  type="text"
@@ -33,7 +33,7 @@ export default class Income extends Component {
               </div>
             </div>
             <div className="m-2" >
-              <label htmlFor="days">Процент накоплений:</label>
+              <label className="text-light" htmlFor="days">Процент накоплений:</label>
               <div className="input-group">
                 <select
                  class="custom-select"
