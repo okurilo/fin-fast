@@ -23,6 +23,14 @@ class App extends Component {
       }
     };
   }
+  componentDidMount = () => {
+    const cachedHits = localStorage.getItem("finData");
+    console.log(cachedHits);
+    if (cachedHits) {
+      this.setState( JSON.parse(cachedHits) );
+      return;
+    }
+  }
   handleChangeIncome = (event) => {
     let value = parseInt( event.target.value, 10 ) || '';
     // event.target.value = +event.target.value;
@@ -104,7 +112,10 @@ class App extends Component {
     total.storage = parseInt(income * percentStorage, 10) || 0;
     total.balance = parseInt(income - total.storage, 10) - requiredCosts || 0;
     total.budget = parseInt(total.balance / days, 10) || 0;
-    this.setState({total});
+    
+    this.setState({total}, function () {
+      this._writeToLocal(this.state);
+    }.bind(this));
   }
   _countRequiredCost = (costs) => {
     let result = costs.reduce(
@@ -112,6 +123,9 @@ class App extends Component {
       0
     );
     return result;
+  }
+  _writeToLocal = (data) => {
+    localStorage.setItem("finData", JSON.stringify(data));
   }
   render() {
     return (
