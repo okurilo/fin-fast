@@ -7,7 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: linear-gradient(to top, #ffffff, #d9dbe2, #ffffff, #b5b9bb, #567b89); */
-  background-image: linear-gradient(to top, #ffffff, #dde3f3, #ffffff, #a6d2e6, #a6d2e6);
+  background-image: linear-gradient(to top, #ffffff, #dde3f3, #ffffff, #a6d2e6, #17a2b8);
   padding: .5rem;
 }
 
