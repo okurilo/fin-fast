@@ -12,8 +12,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      income: 0,
-      days: 0,
+      income: "",
+      days: "",
       percentStorage: 10,
       costs: [ new Cost(new Date().getTime()) ],
       total: {

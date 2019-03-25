@@ -11,6 +11,7 @@ export default class Income extends Component {
                  type="text"
                  className="form-control"
                  id="income"
+                 placeholder="Введите сумму дохода"
                  onChange={this.props.handleChangeIncome}
                  value={this.props.income}/>
                 <div className="input-group-append">
@@ -25,6 +26,7 @@ export default class Income extends Component {
                  type="text"
                  className="form-control"
                  id="days"
+                 placeholder="Внесите количество дней"
                  onChange={this.props.handleChangeDays}
                  value={this.props.days}/>
                 <div className="input-group-append">
@@ -36,9 +38,9 @@ export default class Income extends Component {
               <label className="text-light" htmlFor="days">Процент накоплений:</label>
               <div className="input-group">
                 <select
-                 class="custom-select"
+                 className="custom-select"
                  id="inputGroupSelect01"
-                 defaultValue={this.props.percentStorage}
+                 value={this.props.percentStorage}
                  onChange={this.props.percentStorageSelect} >
                   <option value="0">0</option>
                   <option value="10">10</option>

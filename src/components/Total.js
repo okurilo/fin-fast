@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class Total extends Component {
   render() {
@@ -27,6 +27,6 @@ export default class Total extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

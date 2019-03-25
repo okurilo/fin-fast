@@ -19,7 +19,7 @@ export default class Operation extends Component {
                           <input
                            {...cost}
                            type="text"
-                           className="w-50 form-control"
+                           className="w-25 form-control"
                            onChange={changeText}
                            value={cost.text}
                            placeholder="Введите текст категории" aria-label="Введите текст категории" aria-describedby="button-addon4"/>
