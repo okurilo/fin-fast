@@ -6,6 +6,7 @@ import Income from './components/Income';
 import Operation from './components/Operation';
 import Total from './components/Total';
 import Cost from './model/Cost';
+import AppInitial from './model/AppInitial';
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,11 @@ class App extends Component {
       this.setState( JSON.parse(cachedHits) );
       return;
     }
+  }
+  handleClearStateStorage = () => {
+    this.setState( new AppInitial(), function () {
+      this._updateTotal();
+    });
   }
   handleChangeIncome = (event) => {
     let value = parseInt( event.target.value, 10 ) || '';
@@ -133,7 +139,7 @@ class App extends Component {
         <header>
           <h3 className="text-light" >Расчёт бюджета</h3>
         </header>
-        <section className="m-3 text-left">
+        <section className="m-2 text-left">
           <Income
            income={this.state.income}
            days={this.state.days}
@@ -154,7 +160,11 @@ class App extends Component {
            days={this.state.days}
            percentStorage={this.state.percentStorage} ></Total>
         </section>
-        <footer></footer>
+        <footer>
+          <button
+           className="btn btn-outline-danger"
+           onClick={this.handleClearStateStorage} >Очистить</button>
+        </footer>
       </div>
     );
   }
