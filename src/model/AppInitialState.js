@@ -1,6 +1,6 @@
 import Cost from "./Cost";
 
-export default class AppInitial {
+export default class AppInitialState {
     constructor( ) {
         this.income = "";
         this.days = "";
@@ -10,6 +10,6 @@ export default class AppInitial {
             storage: 0,
             balance: 0,
             budget: 0
-        }
+        };
     }
 }

@@ -6,7 +6,7 @@ import Income from './components/Income';
 import Operation from './components/Operation';
 import Total from './components/Total';
 import Cost from './model/Cost';
-import AppInitial from './model/AppInitial';
+import AppInitialState from './model/AppInitialState';
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class App extends Component {
     }
   }
   handleClearStateStorage = () => {
-    this.setState( new AppInitial(), function () {
+    this.setState( new AppInitialState(), function () {
       this._updateTotal();
     });
   }
