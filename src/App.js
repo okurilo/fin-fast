@@ -153,7 +153,7 @@ class App extends Component {
            handleChangeIncome={this.handleChangeIncome}
            handleChangeDays={this.handleChangeDays} />
           {!isLoaded && 
-            <h3 style={{color: "white", textAlign: "Center", margin: "20px"}} >
+            <h3 style={{color: "#51b0bf", textAlign: "Center", margin: "20px"}} >
               Загрузка...
             </h3>}
           {isLoaded && <Operation
