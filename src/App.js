@@ -29,6 +29,10 @@ class App extends Component {
     console.log(cachedHits);
     if (cachedHits) {
       this.setState( JSON.parse(cachedHits) );
+      this.setState({isLoaded: false});
+      setTimeout(() => {
+        this.setState({isLoaded: true});
+      }, 1500);
       return;
     }
   }
@@ -134,6 +138,7 @@ class App extends Component {
     localStorage.setItem("finData", JSON.stringify(data));
   }
   render() {
+    const {isLoaded} = this.state;
     return (
       <div className="App">
         <header>
@@ -147,12 +152,16 @@ class App extends Component {
            percentStorageSelect={this.percentStorageSelect}
            handleChangeIncome={this.handleChangeIncome}
            handleChangeDays={this.handleChangeDays} />
-          <Operation
+          {!isLoaded && 
+            <h3 style={{color: "white", textAlign: "Center", margin: "20px"}} >
+              Загрузка...
+            </h3>}
+          {isLoaded && <Operation
            costs={this.state.costs}
            addCost={this.addCost}
            deleteCost={this.deleteCost}
            changeText={this.handleChangeCostText}
-           changeValue={this.handleChangeCostValue} ></Operation>
+           changeValue={this.handleChangeCostValue} ></Operation>}
           <Total
            storage={this.state.total.storage}
            balance={this.state.total.balance}
