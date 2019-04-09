@@ -1,3 +1,7 @@
+html, body, #app, #app>div {
+  height: 100%
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -7,7 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* background-image: linear-gradient(to top, #ffffff, #d9dbe2, #ffffff, #b5b9bb, #567b89); */
-  background-image: linear-gradient(to top, #ffffff, #dde3f3, #ffffff, #a6d2e6, #17a2b8);
+  background-image: linear-gradient(to top, #f1f2f2, #dde3f3, #a6d2e6, #a6d2e6, #17a2b8);
   background-repeat: no-repeat;
   padding: .5rem;
 }
