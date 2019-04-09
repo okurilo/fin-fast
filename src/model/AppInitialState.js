@@ -2,8 +2,9 @@ import Cost from "./Cost";
 
 export default class AppInitialState {
     constructor( ) {
-        this.income = "";
-        this.days = "";
+        this.income = 0;
+        this.startDay = null;
+        this.days = 0;
         this.percentStorage = 10;
         this.costs = [ new Cost(new Date().getTime()) ];
         this.total = {

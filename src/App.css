@@ -32,24 +32,24 @@
   }
 }
 
-.calendar {
+.calendar img {
   width: 1.5rem;
   height: 1.5rem;
-  color: blue;
-  display: inline-block;
 }
-.DayPickerInput {
-  /* display: flex;
-  width: 100%;
+.calendar .react-datepicker__input-container,
+.calendar .react-datepicker-wrapper {
   position: relative;
-  -webkit-flex: 1 1 auto; */
+  -webkit-flex: 1 1 auto;
   flex: 1 1 auto;
-  /* width: 1%; */
+  width: 1%;
   margin-bottom: 0;
+  
 }
-.DayPickerInput input {
-  /* display: flex; */
-  /* flex: 1 1 auto; */
+.calendar .react-datepicker__input-container {
+  width: 100%;
+}
+.calendar input {
+  display: block;
   width: 100%;
   height: calc(1.5em + .75rem + 2px);
   padding: .375rem .75rem;

@@ -13,6 +13,7 @@ class Budget extends Component {
     this.state = {
       isLoaded: true,
       income: "",
+      startDay: null,
       days: "",
       percentStorage: 10,
       costs: [ new Cost(new Date().getTime()) ],
@@ -27,7 +28,9 @@ class Budget extends Component {
     const cachedHits = localStorage.getItem("finData");
     // console.log(cachedHits);
     if (cachedHits) {
-      this.setState( JSON.parse(cachedHits) );
+      let parsed = JSON.parse(cachedHits);
+      parsed.startDay = parsed.startDay ? new Date(parsed.startDay) : null;
+      this.setState( parsed );
     } else {
         this.setState({isLoaded: false});
         setTimeout(() => {
@@ -85,6 +88,7 @@ class Budget extends Component {
             isLoaded &&
             <Income
              income={this.state.income}
+             startDay={this.state.startDay}
              days={this.state.days}
              percentStorage={this.state.percentStorage}
              writeToState={this._writeToState} />
