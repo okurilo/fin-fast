@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 export default class Income extends Component {
   render() {
     return (
-        <div className="d-flex flex-wrap">
-            <div className="m-2" >
+        <div className="row">
+            <div className="col-md m-2" >
               <label className="text-light" htmlFor="income">Доход:</label>
               <div className="input-group">
                 <input
@@ -15,11 +15,11 @@ export default class Income extends Component {
                  onChange={this.props.handleChangeIncome}
                  value={this.props.income}/>
                 <div className="input-group-append">
-                  <span className="input-group-text">RUB</span>
+                  <span style={{width: "4rem"}} className="input-group-text justify-content-center">RUB</span>
                 </div>
               </div>
             </div>
-            <div className="m-2" >
+            <div className="col-md m-2" >
               <label className="text-light" htmlFor="days">Количество дней:</label>
               <div className="input-group">
                 <input
@@ -30,16 +30,16 @@ export default class Income extends Component {
                  onChange={this.props.handleChangeDays}
                  value={this.props.days}/>
                 <div className="input-group-append">
-                  <span className="input-group-text">Дней</span>
+                  <span style={{width: "4rem"}} className="input-group-text justify-content-center">Дней</span>
                 </div>
               </div>
             </div>
-            <div className="m-2" >
-              <label className="text-light" htmlFor="days">Процент накоплений:</label>
+            <div className="col-md m-2" >
+              <label className="text-light" htmlFor="percent">Процент накоплений:</label>
               <div className="input-group">
                 <select
-                 className="custom-select"
-                 id="inputGroupSelect01"
+                 className="form-control custom-select"
+                 id="percent"
                  value={this.props.percentStorage}
                  onChange={this.props.percentStorageSelect} >
                   <option value="0">0</option>
@@ -50,7 +50,7 @@ export default class Income extends Component {
                   <option value="30">30</option>
                 </select>
                 <div className="input-group-append">
-                  <span className="input-group-text">%</span>
+                  <span style={{width: "4rem"}} className="input-group-text justify-content-center">%</span>
                 </div>
               </div>
             </div>
