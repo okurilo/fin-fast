@@ -105,6 +105,7 @@ class Budget extends Component {
              storage={this.state.total.storage}
              balance={this.state.total.balance}
              budget={this.state.total.budget}
+             startDay={this.state.startDay}
              days={this.state.days}
              percentStorage={this.state.percentStorage} ></Total>
           }

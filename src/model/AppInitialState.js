@@ -3,7 +3,7 @@ import Cost from "./Cost";
 export default class AppInitialState {
     constructor( ) {
         this.income = 0;
-        this.startDay = null;
+        this.startDay = new Date();
         this.days = 0;
         this.percentStorage = 10;
         this.costs = [ new Cost(new Date().getTime()) ];
