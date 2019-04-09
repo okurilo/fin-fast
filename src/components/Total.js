@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-export default class Total extends Component {
-  render() {
-    const {storage, balance, budget, days, percentStorage} = this.props;
-    return (
+const Total = (props) => {
+  const {storage, balance, budget, days, percentStorage} = props;
+  return (
       <div className="mt-2 card-group text-center">
         <div className="card border-secondary">
           <h4 className="pb-3 mt-3" >{storage} RUB</h4>
@@ -28,5 +27,6 @@ export default class Total extends Component {
         </div>
       </div>
     );
-  }
-}
+  };
+
+export default Total;

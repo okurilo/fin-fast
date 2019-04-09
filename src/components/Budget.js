@@ -40,31 +40,6 @@ class Budget extends Component {
       this._updateTotal();
     });
   }
-  handleChangeIncome = (event) => {
-    let value = parseInt( event.target.value, 10 ) || '';
-    // event.target.value = +event.target.value;
-    value = value || 0;
-    this.setState({income: value }, function () {
-      this._updateTotal();
-    });
-  }
-  handleChangeDays = (event) => {
-    let value = parseInt( event.target.value, 10 ) || '';
-    // event.target.value = +event.target.value;
-    value = value || 0;
-    this.setState({days: value }, function () {
-      this._updateTotal();
-    });
-  }
-  percentStorageSelect = (event) => {
-    let value = parseInt( event.target.value, 10 );
-    // event.target.value = +event.target.value;
-    // value = value || 0;
-    this.setState({percentStorage: value }, function () {
-      this._updateTotal();
-    });
-
-  }
   _updateTotal = () => {
     let income = this.state.income;
     let days = this.state.days;
@@ -100,26 +75,35 @@ class Budget extends Component {
     const {isLoaded} = this.state;
     return (
         <section className="m-2 text-left">
-          {!isLoaded &&
+          {
+            !isLoaded &&
             <h3 style={{color: "#4e6e73", textAlign: "Center", margin: "20px", height: "77vh", "line-height": "77vh"}} >
               Загрузка...
-            </h3>}
-          {isLoaded && <Income
-           income={this.state.income}
-           days={this.state.days}
-           percentStorage={this.state.percentStorage}
-           percentStorageSelect={this.percentStorageSelect}
-           handleChangeIncome={this.handleChangeIncome}
-           handleChangeDays={this.handleChangeDays} />}
-          {isLoaded && <Operation
-           costs={this.state.costs}
-           writeToState={this._writeToState} ></Operation>}
-          {isLoaded && <Total
-           storage={this.state.total.storage}
-           balance={this.state.total.balance}
-           budget={this.state.total.budget}
-           days={this.state.days}
-           percentStorage={this.state.percentStorage} ></Total>}
+            </h3>
+          }
+          {
+            isLoaded &&
+            <Income
+             income={this.state.income}
+             days={this.state.days}
+             percentStorage={this.state.percentStorage}
+             writeToState={this._writeToState} />
+          }
+          {
+            isLoaded &&
+            <Operation
+             costs={this.state.costs}
+             writeToState={this._writeToState} ></Operation>
+          }
+          {
+            isLoaded &&
+            <Total
+             storage={this.state.total.storage}
+             balance={this.state.total.balance}
+             budget={this.state.total.budget}
+             days={this.state.days}
+             percentStorage={this.state.percentStorage} ></Total>
+          }
             <div className="mt-2 d-flex justify-content-center" >
               <button
                className="btn btn-outline-danger"
