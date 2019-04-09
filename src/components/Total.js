@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React/* , { Component }  */from 'react';
 
 const Total = (props) => {
   const {storage, balance, budget, days, percentStorage} = props;

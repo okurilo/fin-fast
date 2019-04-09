@@ -25,7 +25,7 @@ class Budget extends Component {
   }
   componentDidMount = () => {
     const cachedHits = localStorage.getItem("finData");
-    console.log(cachedHits);
+    // console.log(cachedHits);
     if (cachedHits) {
       this.setState( JSON.parse(cachedHits) );
     } else {
@@ -51,7 +51,7 @@ class Budget extends Component {
     total.storage = parseInt(income * percentStorage, 10) || 0;
     total.balance = parseInt(income - total.storage, 10) - requiredCosts || 0;
     total.budget = parseInt(total.balance / days, 10) || 0;
-    
+
     this.setState({total}, function () {
       this._writeToLocal(this.state);
     }.bind(this));
