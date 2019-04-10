@@ -3,11 +3,16 @@ import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ru from 'date-fns/locale/ru';
-import calendar from '../img/calendar.svg';
+import calendar from '../img/calendar2.svg';
+import icons from '../img/calendar2.svg';
 
-
-// window.ru = ru;
 export default class Income extends Component {
+  constructor(props) {
+    super(props);
+
+    this.datePick = React.createRef();
+  }
+
   handleChangeIncome = (event) => {
     let value = parseInt( event.target.value, 10 ) || '';
     // event.target.value = +event.target.value;
@@ -28,10 +33,13 @@ export default class Income extends Component {
   }
   handleStartDaySelect = (value) => {
     value = value || null;
-    console.log(value);
+    // console.log(this.datePick);
     // event.target.value = +event.target.value;
     // value = value || 0;
     this.props.writeToState({field: "startDay", value: value});
+  }
+  handleClickCalendarIcon = () => {
+    this.datePick.current.onInputClick();
   }
   render() {
     const {
@@ -57,10 +65,11 @@ export default class Income extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md m-2" >
+            <div className="calendar col-md m-2" >
               <label className="text-light" htmlFor="days">Дата начала:</label>
-              <div className="calendar input-group">
+              <div className="input-group">
                 <DatePicker
+                 ref={this.datePick}
                  selected={startDay}
                  onChange={this.handleStartDaySelect}
                  dateFormat="d MMMM yyyy"
@@ -68,8 +77,9 @@ export default class Income extends Component {
                  locale={ru} />
                 <div className="input-group-append">
                   {/* <span style={{width: "4rem"}} className="input-group-text justify-content-center">Дней</span> */}
-                  <span style={{width: "4rem"}} className="input-group-text justify-content-center">
+                  <span style={{width: "4rem"}} className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
                     <img src={calendar} className="" alt="Календарь" />
+                      {/* <svg> <use xlinkHref={`${icons}#calendar`} /> </svg> */}
                   </span>
                 </div>
               </div>

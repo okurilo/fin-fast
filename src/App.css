@@ -38,6 +38,7 @@
 }
 .calendar .react-datepicker__input-container,
 .calendar .react-datepicker-wrapper {
+  display: flex;
   position: relative;
   -webkit-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -59,7 +60,12 @@
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #ced4da;    
   border-radius: .25rem;
+  border-top-right-radius: 0rem;
+  border-bottom-right-radius: 0rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.calendar .input-group-text:hover {
+  background-color: white;
 }
