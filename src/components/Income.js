@@ -77,7 +77,7 @@ export default class Income extends Component {
                  locale={ru} />
                 <div className="input-group-append">
                   {/* <span style={{width: "4rem"}} className="input-group-text justify-content-center">Дней</span> */}
-                  <span style={{width: "4rem"}} className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
+                  <span style={{width: "4rem", cursor: "pointer"}} className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
                     <img src={calendar} className="" alt="Календарь" />
                       {/* <svg> <use xlinkHref={`${icons}#calendar`} /> </svg> */}
                   </span>
