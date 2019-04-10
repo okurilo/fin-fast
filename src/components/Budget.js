@@ -109,7 +109,7 @@ class Budget extends Component {
              days={this.state.days}
              percentStorage={this.state.percentStorage} ></Total>
           }
-            <div className="mt-2 d-flex justify-content-center" >
+            <div className="m-2 d-flex justify-content-center" >
               <button
                className="btn btn-outline-danger"
                onClick={this.handleClearStateStorage} >Очистить</button>
