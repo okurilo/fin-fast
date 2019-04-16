@@ -47,7 +47,7 @@ export default class Operation extends Component {
         costs
     } = this.props;
     return (
-        <div className="card text-white bg-info mt-2">
+        <div className="card text-white bg-primary mt-2">
             <div className="card-body">
                 <h5 className="card-title">Обязательные расходы</h5>
                 {costs.map((cost)=>{

@@ -4,7 +4,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ru from 'date-fns/locale/ru';
 import calendar from '../img/calendar2.svg';
-import icons from '../img/calendar2.svg';
 
 export default class Income extends Component {
   constructor(props) {
