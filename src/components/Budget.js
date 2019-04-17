@@ -78,11 +78,34 @@ class Budget extends Component {
     const {isLoaded} = this.state;
     return (
         <section className="m-2 text-left">
-          {
+          {/* {
             !isLoaded &&
             <h3 style={{color: "#4e6e73", textAlign: "Center", margin: "20px", height: "77vh", "line-height": "77vh"}} >
               Загрузка...
             </h3>
+          } */}
+          {
+            !isLoaded &&
+            <div>
+              <div
+               class="d-flex flex-column justify-content-center align-items-center font-weight-lighter text-white" 
+               style={{height: "77vh"}}>
+                <h3 className="font-weight-lighter" style={{textAlign: "Center", margin: "20px"}} >
+                  Загрузка
+                </h3>
+                <div>
+                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           }
           {
             isLoaded &&
@@ -109,11 +132,14 @@ class Budget extends Component {
              days={this.state.days}
              percentStorage={this.state.percentStorage} ></Total>
           }
+          {
+            isLoaded &&
             <div className="m-2 d-flex justify-content-center" >
               <button
                className="btn btn-outline-danger"
                onClick={this.handleClearStateStorage} >Очистить</button>
             </div>
+          }
         </section>
     );
   }
