@@ -26,16 +26,20 @@ class Budget extends Component {
   }
   componentDidMount = () => {
     const cachedHits = localStorage.getItem("finData");
+    const loadIndFunc = (time) => {
+      this.setState({isLoaded: false});
+      setTimeout(() => {
+        this.setState({isLoaded: true});
+      }, time);
+    };
     // console.log(cachedHits);
     if (cachedHits) {
       let parsed = JSON.parse(cachedHits);
       parsed.startDay = parsed.startDay ? new Date(parsed.startDay) : null;
       this.setState( parsed );
+      loadIndFunc(2000);
     } else {
-        this.setState({isLoaded: false});
-        setTimeout(() => {
-          this.setState({isLoaded: true});
-        }, 1000);
+      loadIndFunc(3000);
     }
   }
   handleClearStateStorage = () => {
@@ -88,22 +92,26 @@ class Budget extends Component {
             !isLoaded &&
             <div>
               <div
-               class="d-flex flex-column justify-content-center align-items-center font-weight-lighter text-white" 
-               style={{height: "77vh"}}>
-                <h3 className="font-weight-lighter" style={{textAlign: "Center", margin: "20px"}} >
-                  Загрузка
-                </h3>
-                <div>
-                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
+               class="d-flex flex-column justify-content-center align-items-center text-white"
+               style={{height: "60vh"}}>
+                {/* <div class="cm-spinner"></div> */}
+                <div class="loader-wrapper" id="loader-1">
+                    <div id="loader"></div>
+                    <h3 className="font-weight-lighter" style={{textAlign: "Center"/* , margin: "20px" */}} >
+                      Загрузка
+                    </h3>
                 </div>
+                {/* <div>
+                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                </div>*/}
               </div>
             </div>
           }
