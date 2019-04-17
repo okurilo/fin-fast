@@ -79,7 +79,7 @@ class Budget extends Component {
     localStorage.setItem("finData", JSON.stringify(data));
   }
   render() {
-    const {isLoaded} = false//this.state;
+    const {isLoaded} = this.state;
     return (
         <section className="m-2 text-left">
           {
