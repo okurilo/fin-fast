@@ -79,39 +79,22 @@ class Budget extends Component {
     localStorage.setItem("finData", JSON.stringify(data));
   }
   render() {
-    const {isLoaded} = this.state;
+    const {isLoaded} = false//this.state;
     return (
         <section className="m-2 text-left">
-          {/* {
-            !isLoaded &&
-            <h3 style={{color: "#4e6e73", textAlign: "Center", margin: "20px", height: "77vh", "line-height": "77vh"}} >
-              Загрузка...
-            </h3>
-          } */}
           {
             !isLoaded &&
             <div>
               <div
-               class="d-flex flex-column justify-content-center align-items-center text-white"
-               style={{height: "60vh"}}>
+               className="d-flex flex-column justify-content-center align-items-center text-white"
+               style={{height: "85vh"}}>
                 {/* <div class="cm-spinner"></div> */}
-                <div class="loader-wrapper" id="loader-1">
-                    <div id="loader"></div>
+                <div className="loader-wrapper" id="loader-1">
                     <h3 className="font-weight-lighter" style={{textAlign: "Center"/* , margin: "20px" */}} >
                       Загрузка
                     </h3>
+                    <div id="loader"></div>
                 </div>
-                {/* <div>
-                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-                  <div class="spinner-grow" style={{width: "1rem", height: "1rem"}} role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-                </div>*/}
               </div>
             </div>
           }

@@ -77,11 +77,9 @@
 } */
 #loader-1 #loader{
     position: relative;
-    left: 50%;
-    top: 68%;
-    height: 30vw;
-    width: 30vw;
-    margin: -10vw 0 0 -15vw;
+    height: 12rem;
+    width: 12rem;
+    margin-top: -7rem;
 
     border: 3px solid transparent;
     border-top-color: #3498db;
