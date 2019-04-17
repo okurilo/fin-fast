@@ -1,5 +1,5 @@
 {
-  "main.css": "/fin-fast/static/css/main.69126fa9.chunk.css",
+  "main.css": "/fin-fast/static/css/main.45d781a4.chunk.css",
   "main.js": "/fin-fast/static/js/main.b04eceae.chunk.js",
   "main.js.map": "/fin-fast/static/js/main.b04eceae.chunk.js.map",
   "runtime~main.js": "/fin-fast/static/js/runtime~main.ec4e41f0.js",
@@ -8,9 +8,9 @@
   "static/js/2.0b1d9392.chunk.js": "/fin-fast/static/js/2.0b1d9392.chunk.js",
   "static/js/2.0b1d9392.chunk.js.map": "/fin-fast/static/js/2.0b1d9392.chunk.js.map",
   "index.html": "/fin-fast/index.html",
-  "precache-manifest.109c99b5b9df11af009b4dfe18cc80ef.js": "/fin-fast/precache-manifest.109c99b5b9df11af009b4dfe18cc80ef.js",
+  "precache-manifest.d5605ac87573350f06d1ee50b93930f2.js": "/fin-fast/precache-manifest.d5605ac87573350f06d1ee50b93930f2.js",
   "service-worker.js": "/fin-fast/service-worker.js",
   "static/css/2.6e7c4614.chunk.css.map": "/fin-fast/static/css/2.6e7c4614.chunk.css.map",
-  "static/css/main.69126fa9.chunk.css.map": "/fin-fast/static/css/main.69126fa9.chunk.css.map",
+  "static/css/main.45d781a4.chunk.css.map": "/fin-fast/static/css/main.45d781a4.chunk.css.map",
   "static/media/calendar2.svg": "/fin-fast/static/media/calendar2.1138fb37.svg"
 }
