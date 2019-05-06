@@ -37,12 +37,7 @@ class Budget extends Component {
       this._updateTotal();
     });
   }
-  _updateDaily = () => {
-    let dailyCosts = this.state.dailyCosts;
-    this.setState({dailyCosts}, function () {
-      this._writeToLocal(this.state);
-    }.bind(this));
-  }
+  
   _updateTotal = () => {
     let income = this.state.income;
     let days = this.state.days;
@@ -100,6 +95,7 @@ class Budget extends Component {
              income={this.state.income}
              startDay={this.state.startDay}
              endDay={this.state.endDay}
+             dailyCosts={this.state.dailyCosts}
              percentStorage={this.state.percentStorage}
              writeToState={this._writeToState} />
           }

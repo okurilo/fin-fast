@@ -14,14 +14,30 @@ export default class Day extends Component {
         this.setState({editMode: !editMode});
     }
 
+    transformDate = (date) => {
+        date = new Date(date);
+        const currDate = this._addZero(date.getDate());
+        const currMonth = this._addZero(date.getMonth() + 1); //Months are zero based
+        const currYear = date.getFullYear().toString();
+        return (`${currDate}.${currMonth}.${currYear}`);
+    };
+
+    _addZero = function (value) {
+        value = value.toString() || "";
+        if (value.length === 1) {
+            value = "0" + value;
+        }
+        return value;
+    }
+
     render() {
         const {editMode} = this.state;
         const {cost} = this.props;
         return (
-            <div className="card bg-secondary">
+            <div className="card bg-secondary mb-1">
                 <div className="card-body row">
                     <div className="col-12 col-lg-6">
-                        <h5 className="card-title">30.04.2019</h5>
+                        <h5 className="card-title">{cost.date ? this.transformDate(cost.date) : ""}</h5>
                         <div>
                             { editMode
                                 ? <input

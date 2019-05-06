@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ru from 'date-fns/locale/ru';
+import DailyCost from "../model/DailyCost";
 
 export default class Income extends Component {
   constructor(props) {
@@ -32,7 +33,9 @@ export default class Income extends Component {
     if (value.getTime() > endDay.getTime()) {
       return;
     }
-    this._calculateDays(value, endDay);
+    const days = this._updateDays(value, endDay);
+    this._updateDailyCosts(value, endDay, days);
+    this.props.writeToState({field: "days", value: days});
     this.props.writeToState({field: "startDay", value: value});
   }
   handleEndDaySelect = (value) => {
@@ -41,13 +44,25 @@ export default class Income extends Component {
     if (startDay.getTime() > value.getTime()) {
       return;
     }
-    this._calculateDays(startDay, value);
+    const days = this._calcDays(startDay, value);
+    this._updateDailyCosts(startDay, value, days);
+    this.props.writeToState({field: "days", value: days});
     this.props.writeToState({field: "endDay", value: value});
   }
-  _calculateDays = (startDay, endDay) => {
+  _calcDays = (startDay, endDay) => {
     const timeDifference = Math.abs(endDay.getTime() - startDay.getTime());
     const days =  Math.ceil(timeDifference / (1000 * 3600 * 24));
-    this.props.writeToState({field: "days", value: days});
+    return days;
+  }
+  _updateDailyCosts = (startDay, endDay, days) => {
+    const dailyCosts = this.props.dailyCosts;
+    const newDailyCosts = [];
+    for (let index = 1; index <= days; index++) {
+      let date = new Date();
+      date.setDate(startDay.getDate() + index);
+      newDailyCosts.push( new DailyCost(date.getTime(), date) );
+    }
+    this.props.writeToState({field: "dailyCosts", value: newDailyCosts});
   }
   handleClickCalendarIcon = (event) => {
     const dateType = event.currentTarget.attributes.datetype.value;
