@@ -13,27 +13,20 @@ export default class Income extends Component {
 
   handleChangeIncome = (event) => {
     let value = parseInt( event.target.value, 10 ) || '';
-    // event.target.value = +event.target.value;
     value = value || 0;
     this.props.writeToState({field: "income", value: value});
   }
   handleChangeDays = (event) => {
     let value = parseInt( event.target.value, 10 ) || '';
-    // event.target.value = +event.target.value;
     value = value || 0;
     this.props.writeToState({field: "days", value: value});
   }
   percentStorageSelect = (event) => {
     let value = parseInt( event.target.value, 10 );
-    // event.target.value = +event.target.value;
-    // value = value || 0;
     this.props.writeToState({field: "percentStorage", value: value});
   }
   handleStartDaySelect = (value) => {
     value = value || null;
-    // console.log(this.datePick);
-    // event.target.value = +event.target.value;
-    // value = value || 0;
     this.props.writeToState({field: "startDay", value: value});
   }
   handleClickCalendarIcon = () => {
