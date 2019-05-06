@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ru from 'date-fns/locale/ru';
-import calendar from '../img/calendar2.svg';
 
 export default class Income extends Component {
   constructor(props) {
@@ -75,10 +74,8 @@ export default class Income extends Component {
                  placeholderText="Выберите дату начала"
                  locale={ru} />
                 <div className="input-group-append">
-                  {/* <span style={{width: "4rem"}} className="input-group-text justify-content-center">Дней</span> */}
                   <span style={{width: "4rem", cursor: "pointer"}} className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
-                    <img src={calendar} className="" alt="Календарь" />
-                      {/* <svg> <use xlinkHref={`${icons}#calendar`} /> </svg> */}
+                    <i className="fa fa-calendar" alt="Календарь" />
                   </span>
                 </div>
               </div>

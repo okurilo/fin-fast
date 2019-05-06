@@ -1,0 +1,52 @@
+.daily {
+    padding: 1.25rem;
+    padding-top: 0.2rem;
+
+    /* background-image: linear-gradient(
+        to right top, 
+        #051937, #14183b, #21163d, #2f123d, 
+        #3b0c3a, #4e083c, #60043b, #710038, 
+        #8e0036, #a9002e, #c1001f, #d40a00
+    );
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+}
+.daily .card {
+    padding: 0.2rem 1.25rem;
+    /* padding-top: 0.2rem; */
+/* 
+    background-image: linear-gradient(to right top, #051937, #14183b, #21163d, #2f123d, #3b0c3a, #4e083c, #d40a00);
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+}
+
+.daily .card-body {
+    padding: 0.4rem;
+}
+
+.daily-column {
+    margin: 0px;
+    padding: 0px;
+}
+
+.daily-column span {
+    width: 100%;
+    /* background-color: #051937; */
+    /* color: white; */
+}
+
+.daily .card .delete {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    width: 100%;
+    margin-left: -1.5rem;
+    z-index: 100;
+}
+
+@media (min-width: 992px) {
+    .daily .card-body .second.col-lg-6  {
+        /* justify-content: flex-end;     */
+        align-items: flex-end !important;
+    }
+}

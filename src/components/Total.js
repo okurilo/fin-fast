@@ -10,7 +10,7 @@ export default class Total extends Component {
     return value;
   }
   transformDate = (startDay, days) => {
-    console.log("Transform Date");
+    // console.log("Transform Date");
     let date = new Date(startDay);
     date.setDate(date.getDate() + days);
     const currDate = this._addZero(date.getDate());

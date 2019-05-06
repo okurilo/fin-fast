@@ -2,27 +2,16 @@ import React, { Component } from 'react';
 
 import Income from './Income';
 import Operation from './Operation';
+import Daily from './Daily';
 import Total from './Total';
-import Cost from '../model/Cost';
+// import Cost from '../model/Cost';
 import AppInitialState from '../model/AppInitialState';
 
 class Budget extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isLoaded: true,
-      income: "",
-      startDay: null,
-      days: "",
-      percentStorage: 10,
-      costs: [ new Cost(new Date().getTime()) ],
-      total: {
-        storage: 0,
-        balance: 0,
-        budget: 0
-      }
-    };
+    this.state = new AppInitialState();
   }
   componentDidMount = () => {
     const cachedHits = localStorage.getItem("finData");
@@ -37,7 +26,7 @@ class Budget extends Component {
       let parsed = JSON.parse(cachedHits);
       parsed.startDay = parsed.startDay ? new Date(parsed.startDay) : null;
       this.setState( parsed );
-      loadIndFunc(2000);
+      // loadIndFunc(2000);
     } else {
       loadIndFunc(3000);
     }
@@ -112,6 +101,12 @@ class Budget extends Component {
             <Operation
              costs={this.state.costs}
              writeToState={this._writeToState} ></Operation>
+          }
+          {
+            isLoaded &&
+            <Daily
+             dailyCosts={this.state.dailyCosts}
+             writeToState={this._writeToState} ></Daily>
           }
           {
             isLoaded &&

@@ -32,6 +32,11 @@
   }
 }
 
+/* Color of appent and prepend block of inputs */
+.input-group-text {
+  background-color: #e9ecefd4;
+}
+
 .calendar img {
   width: 1.5rem;
   height: 1.5rem;
