@@ -25,6 +25,7 @@ class Budget extends Component {
     if (cachedHits) {
       let parsed = JSON.parse(cachedHits);
       parsed.startDay = parsed.startDay ? new Date(parsed.startDay) : null;
+      parsed.endDay = parsed.endDay ? new Date(parsed.endDay) : null;
       this.setState( parsed );
       // loadIndFunc(2000);
     } else {
@@ -35,6 +36,12 @@ class Budget extends Component {
     this.setState( new AppInitialState(), function () {
       this._updateTotal();
     });
+  }
+  _updateDaily = () => {
+    let dailyCosts = this.state.dailyCosts;
+    this.setState({dailyCosts}, function () {
+      this._writeToLocal(this.state);
+    }.bind(this));
   }
   _updateTotal = () => {
     let income = this.state.income;
@@ -92,7 +99,7 @@ class Budget extends Component {
             <Income
              income={this.state.income}
              startDay={this.state.startDay}
-             days={this.state.days}
+             endDay={this.state.endDay}
              percentStorage={this.state.percentStorage}
              writeToState={this._writeToState} />
           }
@@ -115,6 +122,7 @@ class Budget extends Component {
              balance={this.state.total.balance}
              budget={this.state.total.budget}
              startDay={this.state.startDay}
+             endDay={this.state.endDay}
              days={this.state.days}
              percentStorage={this.state.percentStorage} ></Total>
           }

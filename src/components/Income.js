@@ -8,7 +8,8 @@ export default class Income extends Component {
   constructor(props) {
     super(props);
 
-    this.datePick = React.createRef();
+    this.startDatePick = React.createRef();
+    this.endDatePick = React.createRef();
   }
 
   handleChangeIncome = (event) => {
@@ -27,16 +28,40 @@ export default class Income extends Component {
   }
   handleStartDaySelect = (value) => {
     value = value || null;
+    const endDay = this.props.endDay;
+    if (value.getTime() > endDay.getTime()) {
+      return;
+    }
+    this._calculateDays(value, endDay);
     this.props.writeToState({field: "startDay", value: value});
   }
-  handleClickCalendarIcon = () => {
-    this.datePick.current.onInputClick();
+  handleEndDaySelect = (value) => {
+    value = value || null;
+    const startDay = this.props.startDay;
+    if (startDay.getTime() > value.getTime()) {
+      return;
+    }
+    this._calculateDays(startDay, value);
+    this.props.writeToState({field: "endDay", value: value});
+  }
+  _calculateDays = (startDay, endDay) => {
+    const timeDifference = Math.abs(endDay.getTime() - startDay.getTime());
+    const days =  Math.ceil(timeDifference / (1000 * 3600 * 24));
+    this.props.writeToState({field: "days", value: days});
+  }
+  handleClickCalendarIcon = (event) => {
+    const dateType = event.currentTarget.attributes.datetype.value;
+    if (dateType === "SD") {
+      this.startDatePick.current.onInputClick();
+    } else { //ED
+      this.endDatePick.current.onInputClick();
+    }
   }
   render() {
     const {
       income,
       startDay,
-      days,
+      endDay,
       percentStorage
     } = this.props;
     return (
@@ -60,21 +85,36 @@ export default class Income extends Component {
               <label className="text-light" htmlFor="days">Дата начала:</label>
               <div className="input-group">
                 <DatePicker
-                 ref={this.datePick}
+                 ref={this.startDatePick}
                  selected={startDay}
                  onChange={this.handleStartDaySelect}
                  dateFormat="d MMMM yyyy"
                  placeholderText="Выберите дату начала"
                  locale={ru} />
                 <div className="input-group-append">
-                  <span style={{width: "4rem", cursor: "pointer"}} className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
+                  <span style={{width: "4rem", cursor: "pointer"}} datetype="SD" className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
                     <i className="fa fa-calendar" alt="Календарь" />
                   </span>
                 </div>
               </div>
             </div>
-            <div className="col-md m-2" >
-              <label className="text-light" htmlFor="days">Количество дней:</label>
+            <div className="calendar col-md m-2" >
+              <label className="text-light" htmlFor="days">Дата окончания:</label>
+              <div className="input-group">
+                <DatePicker
+                 ref={this.endDatePick}
+                 selected={endDay}
+                 onChange={this.handleEndDaySelect}
+                 dateFormat="d MMMM yyyy"
+                 placeholderText="Выберите дату окончания"
+                 locale={ru} />
+                <div className="input-group-append">
+                  <span style={{width: "4rem", cursor: "pointer"}} datetype="ED" className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
+                    <i className="fa fa-calendar" alt="Календарь" />
+                  </span>
+                </div>
+              </div>
+              {/* <label className="text-light" htmlFor="days">Количество дней:</label>
               <div className="input-group">
                 <input
                  type="text"
@@ -86,7 +126,7 @@ export default class Income extends Component {
                 <div className="input-group-append">
                   <span style={{width: "4rem"}} className="input-group-text justify-content-center">Дней</span>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="col-md m-2" >
               <label className="text-light" htmlFor="percent">Процент накоплений:</label>
