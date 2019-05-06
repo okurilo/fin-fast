@@ -54,8 +54,8 @@ export default class Day extends Component {
                     <div className="col-12 col-lg-1 d-flex align-items-center justify-content-end">
                     {/* <button className="btn btn-primary" onClick={this.switchEditMode} ><i className="fa fa-pencil" /></button> */}
                     { editMode
-                                ? <button className="btn btn-danger w-100" onClick={this.switchEditMode} ><i className="fa fa-floppy-o" /></button>
-                                : <button className="btn btn-secondary border border-success w-100" onClick={this.switchEditMode} ><i className="fa fa-pencil" /></button> }
+                        ? <button className="btn btn-success w-100" onClick={this.switchEditMode} ><i className="fa fa-floppy-o" /></button>
+                        : <button className="btn btn-secondary border border-success w-100" onClick={this.switchEditMode} ><i className="fa fa-pencil" /></button> }
                 </div>
                 </div>
             </div>
