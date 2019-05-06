@@ -30,11 +30,12 @@ export default class Daily extends Component {
                     </button>
                 </div>
                 <div className={"daily text-white bg-primary collapse" + showDetail} >
-                    <h5>Ежедневные расходы</h5>
+                    {/* <h5>Ежедневные расходы</h5> */}
 
                     {dailyCosts.map((cost)=>{
                         return (
                             <Day
+                             key={cost.id}
                              cost={cost}
                              writeToState={writeToState} />
                         );

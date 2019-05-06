@@ -1,6 +1,26 @@
+
+.daily input, .daily textarea {
+    /* background-color: #00456a; */
+    border: 1px solid #43b4ef;
+    /* color: white; */
+}
+
+.daily input:focus,  .daily textarea:focus {
+    /* background-color: #00456a; */
+    border: 1px solid #43b4ef;
+    /* color: white; */
+    border-color: #104eac;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(5, 25, 55, 0.25);
+}
+
+.daily input::placeholder, .daily textarea::placeholder {
+    color: #6795ae;
+}
+
 .daily {
     padding: 1.25rem;
-    padding-top: 0.2rem;
+    /* padding-top: 0.2rem; */
 
     /* background-image: linear-gradient(
         to right top, 
@@ -12,7 +32,7 @@
     background-attachment: fixed; */
 }
 .daily .card {
-    padding: 0.2rem 1.25rem;
+    padding: 0.4rem 0.25rem 0rem 0.25rem;
     /* padding-top: 0.2rem; */
 /* 
     background-image: linear-gradient(to right top, #051937, #14183b, #21163d, #2f123d, #3b0c3a, #4e083c, #d40a00);
@@ -21,7 +41,7 @@
 }
 
 .daily .card-body {
-    padding: 0.4rem;
+    padding: 0.6rem;
 }
 
 .daily-column {
@@ -35,18 +55,10 @@
     /* color: white; */
 }
 
-.daily .card .delete {
-    display: flex;
-    justify-content: flex-end;
-    position: absolute;
-    width: 100%;
-    margin-left: -1.5rem;
-    z-index: 100;
-}
-
-@media (min-width: 992px) {
-    .daily .card-body .second.col-lg-6  {
+@media (max-width: 992px) {
+    .daily .card-body div:nth-child(2)  {
         /* justify-content: flex-end;     */
-        align-items: flex-end !important;
+        align-items: flex-start !important;
+        margin-top: 1rem;
     }
 }

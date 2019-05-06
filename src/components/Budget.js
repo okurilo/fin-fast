@@ -77,7 +77,7 @@ class Budget extends Component {
               <div
                className="d-flex flex-column justify-content-center align-items-center text-white"
                style={{height: "85vh"}}>
-                {/* <div class="cm-spinner"></div> */}
+                {/* <div className="cm-spinner"></div> */}
                 <div className="loader-wrapper" id="loader-1">
                     <h3 className="font-weight-lighter" style={{textAlign: "Center"/* , margin: "20px" */}} >
                       Загрузка
