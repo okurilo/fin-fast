@@ -15,9 +15,20 @@ export default class Day extends Component {
         this.setState({editMode: !editMode});
     }
 
+    // // Income
+    // handleChangeIncome = (event) => {
+    //     let value = parseInt( event.target.value, 10 ) || '';
+    //     value = value || 0;
+    //     this.props.writeToState({field: "income", value: value});
+    // }
+    // handleChange = (e) => {
+    //     const { id, value } = e.currentTarget;
+    //     this.setState({ [id]: value });
+    // }
+
     render() {
         const {editMode} = this.state;
-        const {cost} = this.props;
+        const {cost, changeCostValue} = this.props;
         return (
             <div className={"card bg-secondary mb-1 " + (editMode ? "border border-warning" : "")}>
                 <div className="card-body row">
@@ -27,10 +38,11 @@ export default class Day extends Component {
                             { editMode
                                 ? <input
                                    type="text"
+                                   name="spended"
                                    className="form-control-sm w-100"
-                                   id="spended"
+                                   id={cost.id}
                                    placeholder="Сумма трат за день"
-                                   onChange={this.handleChangeDays}
+                                   onChange={changeCostValue}
                                    value={cost.spended}/>
                                 : <span className="card-text">Траты: {cost.spended} руб.</span> }
                         </div>
@@ -38,10 +50,11 @@ export default class Day extends Component {
                             { editMode
                                 ? <textarea
                                    type="text"
+                                   name="comment"
                                    className="form-control mt-2"
-                                   id="spended"
+                                   id={cost.id}
                                    placeholder="Введите коментарий"
-                                   onChange={this.handleChangeDays}
+                                   onChange={changeCostValue}
                                    value={cost.comment}/>
                                 : <span className="card-text">{cost.comment}</span> }
                         </div>

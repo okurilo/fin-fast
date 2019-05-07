@@ -70,8 +70,8 @@ export default class Income extends Component {
   }
 
   handleClickCalendarIcon = (event) => {
-    const dateType = event.currentTarget.attributes.datetype.value;
-    if (dateType === "SD") {
+    const name = event.currentTarget.attributes.name.value;
+    if (name === "SD") {
       this.startDatePick.current.onInputClick();
     } else { //ED
       this.endDatePick.current.onInputClick();
@@ -113,7 +113,7 @@ export default class Income extends Component {
                  placeholderText="Выберите дату начала"
                  locale={ru} />
                 <div className="input-group-append">
-                  <span style={{width: "4rem", cursor: "pointer"}} datetype="SD" className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
+                  <span style={{width: "4rem", cursor: "pointer"}} name="SD" className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
                     <i className="fa fa-calendar" alt="Календарь" />
                   </span>
                 </div>
@@ -130,7 +130,7 @@ export default class Income extends Component {
                  placeholderText="Выберите дату окончания"
                  locale={ru} />
                 <div className="input-group-append">
-                  <span style={{width: "4rem", cursor: "pointer"}} datetype="ED" className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
+                  <span style={{width: "4rem", cursor: "pointer"}} name="ED" className="input-group-text justify-content-center" onClick={this.handleClickCalendarIcon}>
                     <i className="fa fa-calendar" alt="Календарь" />
                   </span>
                 </div>

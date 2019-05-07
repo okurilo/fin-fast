@@ -77,7 +77,7 @@ class Budget extends Component {
     // Calc Daily info
     dailyCosts = this._reCalcDailyCosts(dailyCosts, total.budget);
 
-    this.setState({total}, function () {
+    this.setState({total, dailyCosts}, function () {
       this._writeToLocal(this.state);
     }.bind(this));
   }
@@ -98,6 +98,7 @@ class Budget extends Component {
         }, []
     );
     console.log(temp);
+    return temp;
   }
 
   render() {
