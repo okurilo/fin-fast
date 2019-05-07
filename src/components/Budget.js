@@ -52,6 +52,7 @@ class Budget extends Component {
   }
 
   _updateTotal = () => {
+    // TODO: Add switcher for fields and update only used branches
     const _countRequiredCost = (mandatoryCosts) => {
       let result = mandatoryCosts.reduce(
         (accumulator, currentValue) => accumulator + currentValue.value,
@@ -59,6 +60,7 @@ class Budget extends Component {
       );
       return result;
     };
+
     let income = this.state.income;
     let days = this.state.days;
     let mandatoryCosts = [...this.state.mandatoryCosts];
@@ -66,7 +68,7 @@ class Budget extends Component {
     const percentStorage = this.state.percentStorage / 100;
     let total = this.state.total;
     let requiredCosts = _countRequiredCost(mandatoryCosts);
-    
+
     // Calc Total info
     total.storage = parseInt(income * percentStorage, 10) || 0;
     total.balance = parseInt(income - total.storage, 10) - requiredCosts || 0;
@@ -81,7 +83,21 @@ class Budget extends Component {
   }
 
   _reCalcDailyCosts = (dailyCosts, budget) => {
-
+    let temp = dailyCosts.reduce(
+      function (accumulator, currentValue, index) {
+        if (index === 0) {
+          currentValue.available = budget;
+          currentValue.saved = currentValue.available - currentValue.spended;
+        } else {
+          // currentValue.available = dailyCosts[index - 1].available - currentValue.spended;
+          currentValue.available = budget + dailyCosts[index - 1].saved;
+          currentValue.saved = currentValue.available - currentValue.spended;
+        }
+          accumulator.push(currentValue);
+          return accumulator;
+        }, []
+    );
+    console.log(temp);
   }
 
   render() {
