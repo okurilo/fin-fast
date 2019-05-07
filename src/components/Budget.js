@@ -4,15 +4,17 @@ import Income from './Income';
 import Operation from './Operation';
 import Daily from './Daily';
 import Total from './Total';
-// import Cost from '../model/Cost';
+// import MandatoryCost from '../model/MandatoryCost';
 import AppInitialState from '../model/AppInitialState';
 
 class Budget extends Component {
+
   constructor(props) {
     super(props);
 
     this.state = new AppInitialState();
   }
+
   componentDidMount = () => {
     const cachedHits = localStorage.getItem("finData");
     const loadIndFunc = (time) => {
@@ -32,19 +34,37 @@ class Budget extends Component {
       loadIndFunc(3000);
     }
   }
+  // Write to state and storage functions
+  _writeToState = (data) => {
+    this.setState({[data.field]: data.value}, function () {
+      this._updateTotal();
+    });
+  }
+
+  _writeToLocal = (data) => {
+    localStorage.setItem("finData", JSON.stringify(data));
+  }
+
   handleClearStateStorage = () => {
     this.setState( new AppInitialState(), function () {
       this._updateTotal();
     });
   }
-  
+
   _updateTotal = () => {
+    const _countRequiredCost = (mandatoryCost) => {
+      let result = mandatoryCost.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.value,
+        0
+      );
+      return result;
+    };
     let income = this.state.income;
     let days = this.state.days;
-    let costs = [...this.state.costs];
+    let mandatoryCost = [...this.state.mandatoryCost];
     const percentStorage = this.state.percentStorage / 100;
     let total = this.state.total;
-    let requiredCosts = this._countRequiredCost(costs);
+    let requiredCosts = _countRequiredCost(mandatoryCost);
 
     total.storage = parseInt(income * percentStorage, 10) || 0;
     total.balance = parseInt(income - total.storage, 10) - requiredCosts || 0;
@@ -54,21 +74,7 @@ class Budget extends Component {
       this._writeToLocal(this.state);
     }.bind(this));
   }
-  _countRequiredCost = (costs) => {
-    let result = costs.reduce(
-      (accumulator, currentValue) => accumulator + currentValue.value,
-      0
-    );
-    return result;
-  }
-  _writeToState = (data) => {
-    this.setState({[data.field]: data.value}, function () {
-      this._updateTotal();
-    });
-  }
-  _writeToLocal = (data) => {
-    localStorage.setItem("finData", JSON.stringify(data));
-  }
+
   render() {
     const {isLoaded} = this.state;
     return (
@@ -102,7 +108,7 @@ class Budget extends Component {
           {
             isLoaded &&
             <Operation
-             costs={this.state.costs}
+             mandatoryCost={this.state.mandatoryCost}
              writeToState={this._writeToState} ></Operation>
           }
           {

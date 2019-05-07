@@ -4,39 +4,40 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ru from 'date-fns/locale/ru';
 import DailyCost from "../model/DailyCost";
+import { calcDaysDifference } from "../utils/Date";
 
 export default class Income extends Component {
+
   constructor(props) {
     super(props);
 
     this.startDatePick = React.createRef();
     this.endDatePick = React.createRef();
   }
-
+  // Income
   handleChangeIncome = (event) => {
     let value = parseInt( event.target.value, 10 ) || '';
     value = value || 0;
     this.props.writeToState({field: "income", value: value});
   }
-  handleChangeDays = (event) => {
-    let value = parseInt( event.target.value, 10 ) || '';
-    value = value || 0;
-    this.props.writeToState({field: "days", value: value});
-  }
+  // Select input
   percentStorageSelect = (event) => {
     let value = parseInt( event.target.value, 10 );
     this.props.writeToState({field: "percentStorage", value: value});
   }
+  // Calendar
   handleStartDaySelect = (value) => {
     value = value || null;
     const endDay = this.props.endDay;
     if (value.getTime() > endDay.getTime()) {
       return;
     }
-    const days = this._updateDays(value, endDay);
-    this._updateDailyCosts(value, endDay, days);
+    const days = calcDaysDifference(value, endDay) + 1; //If start & end dates same => +1 (not 0)
     this.props.writeToState({field: "days", value: days});
     this.props.writeToState({field: "startDay", value: value});
+
+    // Update detail daily cost block
+    this._updateDailyCosts(value, endDay, days);
   }
   handleEndDaySelect = (value) => {
     value = value || null;
@@ -44,26 +45,25 @@ export default class Income extends Component {
     if (startDay.getTime() > value.getTime()) {
       return;
     }
-    const days = this._calcDays(startDay, value);
-    this._updateDailyCosts(startDay, value, days);
+    const days = calcDaysDifference(startDay, value) + 1; //If start & end dates same =>  +1 (not 0)
     this.props.writeToState({field: "days", value: days});
     this.props.writeToState({field: "endDay", value: value});
+
+    // Update detail daily cost block
+    this._updateDailyCosts(startDay, value, days);
   }
-  _calcDays = (startDay, endDay) => {
-    const timeDifference = Math.abs(endDay.getTime() - startDay.getTime());
-    const days =  Math.ceil(timeDifference / (1000 * 3600 * 24));
-    return days;
-  }
+
   _updateDailyCosts = (startDay, endDay, days) => {
-    const dailyCosts = this.props.dailyCosts;
+    // const dailyCosts = this.props.dailyCosts;
     const newDailyCosts = [];
-    for (let index = 1; index <= days; index++) {
+    for (let index = 0; index < days; index++) {
       let date = new Date();
       date.setDate(startDay.getDate() + index);
       newDailyCosts.push( new DailyCost(date.getTime(), date) );
     }
     this.props.writeToState({field: "dailyCosts", value: newDailyCosts});
   }
+
   handleClickCalendarIcon = (event) => {
     const dateType = event.currentTarget.attributes.datetype.value;
     if (dateType === "SD") {
@@ -72,6 +72,7 @@ export default class Income extends Component {
       this.endDatePick.current.onInputClick();
     }
   }
+
   render() {
     const {
       income,
@@ -129,19 +130,6 @@ export default class Income extends Component {
                   </span>
                 </div>
               </div>
-              {/* <label className="text-light" htmlFor="days">Количество дней:</label>
-              <div className="input-group">
-                <input
-                 type="text"
-                 className="form-control"
-                 id="days"
-                 placeholder="Внесите количество дней"
-                 onChange={this.handleChangeDays}
-                 value={days}/>
-                <div className="input-group-append">
-                  <span style={{width: "4rem"}} className="input-group-text justify-content-center">Дней</span>
-                </div>
-              </div> */}
             </div>
             <div className="col-md m-2" >
               <label className="text-light" htmlFor="percent">Процент накоплений:</label>

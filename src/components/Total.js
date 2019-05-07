@@ -1,23 +1,8 @@
 import React, { Component } from 'react';
+import {transformDate} from "../utils/Date";
 
 // const Total = (props) => {
 export default class Total extends Component {
-  _addZero = function (value) {
-    value = value.toString() || "";
-    if (value.length === 1) {
-        value = "0" + value;
-    }
-    return value;
-  }
-  transformDate = (endDay, days) => {
-    // console.log("Transform Date");
-    let date = new Date(endDay);
-    // date.setDate(date.getDate() + days);
-    const currDate = this._addZero(date.getDate());
-    const currMonth = this._addZero(date.getMonth() + 1); //Months are zero based
-    const currYear = date.getFullYear().toString();
-    return (`(до ${currDate}.${currMonth}.${currYear})`);
-  };
   render() {
     const {storage, balance, budget, endDay, days, percentStorage} = this.props;
     return (
@@ -32,7 +17,7 @@ export default class Total extends Component {
           <div className="card bg-primary border-secondary rounded-lg">
             <h4 className="pb-3 mt-3" >{balance} RUB</h4>
             <div className="pt-0 card-body d-flex flex-column justify-content-between">
-              <h5 className="card-title ">Остаток {endDay ? this.transformDate(endDay, days) : ""}</h5>
+              <h5 className="card-title ">Остаток {endDay ? `(до ${transformDate(endDay)})` : ""}</h5>
               <p className="card-text">Сумма на расходы, которую можно потратить за {days} дней.</p>
             </div>
           </div>
@@ -40,7 +25,7 @@ export default class Total extends Component {
             <h4 className="pb-3 mt-3" >{budget} RUB</h4>
             <div className="pt-0 card-body d-flex flex-column justify-content-between">
               <h5 className="card-title ">в день</h5>
-              <p className="card-text">Ежедневный бюджет  {endDay ? this.transformDate(endDay, days) : ""}.</p>
+              <p className="card-text">Ежедневный бюджет  {endDay ? `(до ${transformDate(endDay)})` : ""}.</p>
             </div>
           </div>
         </div>

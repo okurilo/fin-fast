@@ -1,4 +1,4 @@
-export default class Cost {
+export default class MandatoryCost {
     constructor( id ) {
         this.id = id;
         this.text = "";
