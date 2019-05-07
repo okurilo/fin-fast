@@ -59,6 +59,8 @@ export default class Income extends Component {
     for (let index = 0; index < days; index++) {
       let date = new Date();
       date.setDate(startDay.getDate() + index);
+      const cost = new DailyCost(date.getTime()/*id*/, date);
+      // cost
       newDailyCosts.push( new DailyCost(date.getTime(), date) );
     }
     this.props.writeToState({field: "dailyCosts", value: newDailyCosts});
