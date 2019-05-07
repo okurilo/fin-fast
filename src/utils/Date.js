@@ -12,9 +12,13 @@ export const transformDate = (date) => {
     const currYear = date.getFullYear().toString();
     return (`${currDate}.${currMonth}.${currYear}`);
 };
+export const calcDay = (time) => {
+    const day = Math.ceil(time / (1000 * 3600 * 24));
+    return day;
+}
 export const calcDaysDifference = (startDay, endDay) => {
     const timeDifference = Math.abs(endDay.getTime() - startDay.getTime());
-    const days = Math.ceil(timeDifference / (1000 * 3600 * 24));
+    const days = calcDay(timeDifference);
     return days;
 };
 

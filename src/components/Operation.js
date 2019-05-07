@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
-import MandatoryCost from '../model/MandatoryCost';
+import MandatoryCost from '../model/MandatoryCosts';
 
 export default class Operation extends Component {
 
   addNewCost = () => {
     // const {state} = this.props;
-    const mandatoryCost = [...this.props.mandatoryCost];
-    // mandatoryCost.unshift( new MandatoryCost(new Date().getTime()) );
-    mandatoryCost.push( new MandatoryCost(new Date().getTime()) );
-    this.props.writeToState({field: "mandatoryCost", value: mandatoryCost});
+    const mandatoryCosts = [...this.props.mandatoryCosts];
+    // mandatoryCosts.unshift( new MandatoryCost(new Date().getTime()) );
+    mandatoryCosts.push( new MandatoryCost(new Date().getTime()) );
+    this.props.writeToState({field: "mandatoryCosts", value: mandatoryCosts});
   }
 
   deleteCost = (event) => {
     const id = +event.target.id;
     // const {state} = this.props;
-    let mandatoryCost = [...this.props.mandatoryCost];
-    mandatoryCost = mandatoryCost.filter((cost) => {
+    let mandatoryCosts = [...this.props.mandatoryCosts];
+    mandatoryCosts = mandatoryCosts.filter((cost) => {
       return cost.id !== id;
     });
-    this.props.writeToState({field: "mandatoryCost", value: mandatoryCost});
+    this.props.writeToState({field: "mandatoryCosts", value: mandatoryCosts});
   }
 
   handleChangeCostText = (event) => {
     const id = +event.target.id;
     const value = event.target.value;
-    let mandatoryCost = [...this.props.mandatoryCost];
-    mandatoryCost.forEach((el) => {
+    let mandatoryCosts = [...this.props.mandatoryCosts];
+    mandatoryCosts.forEach((el) => {
       if (el.id === id) {
         el.text = value;
       }
     });
-    this.props.writeToState({field: "mandatoryCost", value: mandatoryCost});
+    this.props.writeToState({field: "mandatoryCosts", value: mandatoryCosts});
   }
 
   handleChangeCostValue = (event) => {
@@ -38,24 +38,24 @@ export default class Operation extends Component {
     const id = +event.target.id;
     const value = parseInt( event.target.value, 10 ) || '';
     // event.target.value = +event.target.value;
-    let mandatoryCost = [...this.props.mandatoryCost];
-    mandatoryCost.forEach((el) => {
+    let mandatoryCosts = [...this.props.mandatoryCosts];
+    mandatoryCosts.forEach((el) => {
       if (el.id === id) {
         el.value = value;
       }
     });
-    this.props.writeToState({field: "mandatoryCost", value: mandatoryCost});
+    this.props.writeToState({field: "mandatoryCosts", value: mandatoryCosts});
   }
 
   render() {
     const {
-        mandatoryCost
+        mandatoryCosts
     } = this.props;
     return (
         <div className="card text-white bg-primary mt-2">
             <div className="card-body">
                 <h5 className="card-title">Обязательные расходы</h5>
-                {mandatoryCost.map((cost)=>{
+                {mandatoryCosts.map((cost)=>{
                     return (
                         <div key={cost.id} className="input-group m-0 mb-2">
                           <input

@@ -1,4 +1,4 @@
-import MandatoryCost from "./MandatoryCost";
+import MandatoryCost from "./MandatoryCosts";
 import DailyCost from "./DailyCost";
 
 const today = new Date();
@@ -12,7 +12,7 @@ export default class AppInitialState {
         this.endDay = tomorrow;
         this.days = 2;
         this.percentStorage = 10;
-        this.mandatoryCost = [ new MandatoryCost(today.getTime()) ];
+        this.mandatoryCosts = [ new MandatoryCost(today.getTime()) ];
         this.dailyCosts = [ new DailyCost(today.getTime(), today), new DailyCost(tomorrow.getTime(), tomorrow) ];
         this.total = {
             storage: 0,

@@ -4,7 +4,7 @@ import Income from './Income';
 import Operation from './Operation';
 import Daily from './Daily';
 import Total from './Total';
-// import MandatoryCost from '../model/MandatoryCost';
+// import MandatoryCosts from '../model/MandatoryCosts';
 import AppInitialState from '../model/AppInitialState';
 
 class Budget extends Component {
@@ -52,8 +52,8 @@ class Budget extends Component {
   }
 
   _updateTotal = () => {
-    const _countRequiredCost = (mandatoryCost) => {
-      let result = mandatoryCost.reduce(
+    const _countRequiredCost = (mandatoryCosts) => {
+      let result = mandatoryCosts.reduce(
         (accumulator, currentValue) => accumulator + currentValue.value,
         0
       );
@@ -61,18 +61,27 @@ class Budget extends Component {
     };
     let income = this.state.income;
     let days = this.state.days;
-    let mandatoryCost = [...this.state.mandatoryCost];
+    let mandatoryCosts = [...this.state.mandatoryCosts];
+    let dailyCosts = [...this.state.dailyCosts];
     const percentStorage = this.state.percentStorage / 100;
     let total = this.state.total;
-    let requiredCosts = _countRequiredCost(mandatoryCost);
-
+    let requiredCosts = _countRequiredCost(mandatoryCosts);
+    
+    // Calc Total info
     total.storage = parseInt(income * percentStorage, 10) || 0;
     total.balance = parseInt(income - total.storage, 10) - requiredCosts || 0;
     total.budget = parseInt(total.balance / days, 10) || 0;
 
+    // Calc Daily info
+    dailyCosts = this._reCalcDailyCosts(dailyCosts, total.budget);
+
     this.setState({total}, function () {
       this._writeToLocal(this.state);
     }.bind(this));
+  }
+
+  _reCalcDailyCosts = (dailyCosts, budget) => {
+
   }
 
   render() {
@@ -108,7 +117,7 @@ class Budget extends Component {
           {
             isLoaded &&
             <Operation
-             mandatoryCost={this.state.mandatoryCost}
+             mandatoryCosts={this.state.mandatoryCosts}
              writeToState={this._writeToState} ></Operation>
           }
           {

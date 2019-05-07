@@ -29,6 +29,8 @@ export default class Income extends Component {
   handleStartDaySelect = (value) => {
     value = value || null;
     const endDay = this.props.endDay;
+    value.setHours(0,0,0,0);
+    endDay.setHours(0,0,0,0);
     if (value.getTime() > endDay.getTime()) {
       return;
     }
@@ -42,6 +44,8 @@ export default class Income extends Component {
   handleEndDaySelect = (value) => {
     value = value || null;
     const startDay = this.props.startDay;
+    value.setHours(0,0,0,0);
+    startDay.setHours(0,0,0,0);
     if (startDay.getTime() > value.getTime()) {
       return;
     }
@@ -60,8 +64,7 @@ export default class Income extends Component {
       let date = new Date();
       date.setDate(startDay.getDate() + index);
       const cost = new DailyCost(date.getTime()/*id*/, date);
-      // cost
-      newDailyCosts.push( new DailyCost(date.getTime(), date) );
+      newDailyCosts.push( cost );
     }
     this.props.writeToState({field: "dailyCosts", value: newDailyCosts});
   }
