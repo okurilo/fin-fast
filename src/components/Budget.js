@@ -29,7 +29,7 @@ class Budget extends Component {
       parsed.startDay = parsed.startDay ? new Date(parsed.startDay) : null;
       parsed.endDay = parsed.endDay ? new Date(parsed.endDay) : null;
       this.setState( parsed );
-      // loadIndFunc(2000);
+      loadIndFunc(1200);
     } else {
       loadIndFunc(3000);
     }
