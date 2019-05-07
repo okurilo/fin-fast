@@ -19,19 +19,21 @@ export default class Daily extends Component {
     }
     render() {
         const showDetail = this.state.showDetail ? 'show' : '';
+        const btnVis = "fa " + (this.state.showDetail ? "fa-arrow-up" : "fa-arrow-down");
         const { dailyCosts, writeToState } = this.props;
         return (
             <div>
                 <div className="d-flex mt-2 justify-content-center">
-                    <button type="button" className=" w-100 text-center btn btn-primary" onClick={this.hadnleSwitchDetailShow} >
-                        <i style={iconStyle} className={"mr-4 fa " + (this.state.showDetail ? "fa-arrow-up" : "fa-arrow-down")} alt="Открыть" />
+                    <button
+                     type="button"
+                     className=" w-100 text-center btn btn-primary"
+                     onClick={this.hadnleSwitchDetailShow} >
+                        <i  style={iconStyle}  className={"mr-4 " + btnVis} />
                         Детализация расходов по дням
-                        <i style={iconStyle} className={"ml-4 fa " + (this.state.showDetail ? "fa-arrow-up" : "fa-arrow-down")} alt="Открыть" />
+                        <i  style={iconStyle}  className={"ml-4 " + btnVis} />
                     </button>
                 </div>
                 <div className={"daily text-white bg-primary collapse" + showDetail} >
-                    {/* <h5>Ежедневные расходы</h5> */}
-
                     {dailyCosts.map((cost)=>{
                         return (
                             <Day
