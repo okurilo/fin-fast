@@ -6,5 +6,6 @@ export default class DailyCost {
         this.comment = "";
         this.available = 0;
         this.saved = 0;
+        this.budget = 0;
     }
 }

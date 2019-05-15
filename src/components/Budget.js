@@ -85,6 +85,7 @@ class Budget extends Component {
   _reCalcDailyCosts = (dailyCosts, budget) => {
     let newDailyCosts = dailyCosts.reduce(
       function (accumulator, currentValue, index) {
+        currentValue.budget = budget;
         if (index === 0) {
           currentValue.available = budget;
           currentValue.saved = currentValue.available - currentValue.spended;
