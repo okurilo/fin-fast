@@ -68,7 +68,7 @@ export default class Day extends Component {
                         <div className="">
                             <h6 className="card-title">Дневной бюджет: {cost.budget} руб.</h6>
                             <h6 className="card-title">Остаток на сегодня: {cost.available} руб.</h6>
-                            <h6 className="card-title mb-0">Накоплено: {cost.saved} руб.</h6>
+                            <h6 className="card-title mb-0">Общий остаток: {cost.saved} руб.</h6>
                             <h6 className="card-title font-weight-normal"><i>(С учётом остатка за предыдущий день)</i></h6>
                         </div>
                     </div>
