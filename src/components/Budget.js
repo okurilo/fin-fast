@@ -87,12 +87,12 @@ class Budget extends Component {
       function (accumulator, currentValue, index) {
         currentValue.budget = budget;
         if (index === 0) {
-          currentValue.available = budget;
-          currentValue.saved = currentValue.available - currentValue.spended;
+          currentValue.available = budget - currentValue.spended;
+          currentValue.saved = currentValue.available;//currentValue.available - currentValue.spended;
         } else {
           // currentValue.available = dailyCosts[index - 1].available - currentValue.spended;
-          currentValue.available = budget + dailyCosts[index - 1].saved;
-          currentValue.saved = currentValue.available - currentValue.spended;
+          currentValue.available = budget - currentValue.spended; //+ dailyCosts[index - 1].saved;
+          currentValue.saved = currentValue.available + dailyCosts[index - 1].saved;// - currentValue.spended;
         }
           accumulator.push(currentValue);
           return accumulator;

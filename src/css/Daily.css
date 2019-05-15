@@ -62,3 +62,12 @@
         margin-top: 1rem;
     }
 }
+
+.daily .card .card-title i {
+    font-size: 14px;
+ }
+ 
+.daily .card:first-child .card-title i {
+    color: #00456a
+ }
+ 
