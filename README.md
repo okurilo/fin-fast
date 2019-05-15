@@ -3,6 +3,7 @@
 Small and fast tool for calculating the budget for a given period. Also there is a function of calculating the daily budget and simple cost accounting.
 
 ### Screenshots
+![Screenshots of full version](public/ExampleScreenShort.jpg)
 
 ## License
 
