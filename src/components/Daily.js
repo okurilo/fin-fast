@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Daily.css';
-import Day from './Day';
+import Day from './day/Day';
 
 const iconStyle = {
     width: "0.8rem",

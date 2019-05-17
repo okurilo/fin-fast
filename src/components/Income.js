@@ -15,7 +15,10 @@ export default class Income extends Component {
     this.startDatePick = React.createRef();
     this.endDatePick = React.createRef();
     /* !New */
-    this.IncomeController = new IncomeController(this.props, this.startDatePick, this.endDatePick);
+    this.IncomeController = new IncomeController(this.getProps, this.startDatePick, this.endDatePick);
+  }
+  getProps = () => {
+    return this.props;
   }
   // // Income
   // handleChangeIncome = (event) => {

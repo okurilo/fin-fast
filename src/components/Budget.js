@@ -28,6 +28,10 @@ class Budget extends Component {
       let parsed = JSON.parse(cachedHits);
       parsed.startDay = parsed.startDay ? new Date(parsed.startDay) : null;
       parsed.endDay = parsed.endDay ? new Date(parsed.endDay) : null;
+      parsed.dailyCosts = parsed.dailyCosts.map((el) => {
+        el.date = new Date(el.date);
+        return el;
+      });
       this.setState( parsed );
       loadIndFunc(1200);
     } else {
