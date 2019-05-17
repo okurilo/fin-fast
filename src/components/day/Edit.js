@@ -57,7 +57,7 @@ export default class Edit extends Component {
         const dayTime = cost.date.getTime();
         const todayDate = new Date();
         const todayTime = todayDate.getTime();
-        console.log(this.props.dayKey);
+        // console.log(this.props.dayKey);
         return (
             <div className="card-body row">
                 <div className="col-12 col-lg-4">
@@ -75,8 +75,8 @@ export default class Edit extends Component {
                         return (
                             <div key={spend.id}>
                                 <div  className="input-group-sm d-flex m-0 mb-2">
-                                    <div class="input-group-prepend">
-                                        <button {...spend} name="isloss" class="btn btn-warning" onClick={this.handleChangeSpendValue} >
+                                    <div className="input-group-prepend">
+                                        <button id={spend.id} name="isloss" className="btn btn-warning" onClick={this.handleChangeSpendValue} >
                                             { spend.isloss
                                                 ? <i className="fa fa-minus" alt="В минус" />
                                                 : <i className="fa fa-plus" alt="В плюс" />
@@ -84,7 +84,7 @@ export default class Edit extends Component {
                                         </button>
                                     </div>
                                     <input
-                                     {...spend}
+                                      id={spend.id}
                                      type="text"
                                      name="value"
                                      className="form-control"
@@ -92,7 +92,7 @@ export default class Edit extends Component {
                                      value={spend.value}
                                      placeholder="Сумма" aria-label="Сумма" aria-describedby="button-addon4"/>
                                     <input
-                                     {...spend}
+                                      id={spend.id}
                                      type="text"
                                      name="text"
                                      className="form-control"
@@ -102,7 +102,7 @@ export default class Edit extends Component {
                                     <div className="input-group-append" id="button-addon4">
                                       {/* <button className="btn btn-outline-light" type="button">Edit</button> */}
                                       <button
-                                       {...spend}
+                                       id={spend.id}
                                        onClick={this.deleteSpend}
                                        className="border-left btn btn-dark"
                                        type="button">x</button>

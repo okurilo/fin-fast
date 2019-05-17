@@ -4,10 +4,10 @@ import {transformDate} from "../../utils/Date";
 export default class Display extends Component {
     isToday = (date) => {
         const today = new Date();
-        console.log(date, today);
-        return date.getDate() == today.getDate() &&
-          date.getMonth() == today.getMonth() &&
-          date.getFullYear() == today.getFullYear();
+        // console.log(date, today);
+        return date.getDate() === today.getDate() &&
+          date.getMonth() === today.getMonth() &&
+          date.getFullYear() === today.getFullYear();
     }
 
     render() {
