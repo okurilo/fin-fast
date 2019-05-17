@@ -2,15 +2,28 @@ import React, { Component } from 'react';
 import {transformDate} from "../../utils/Date";
 
 export default class DayDisplay extends Component {
+    isToday = (date) => {
+        const today = new Date();
+        console.log(date, today);
+        return date.getDate() == today.getDate() &&
+          date.getMonth() == today.getMonth() &&
+          date.getFullYear() == today.getFullYear();
+    }
+
     render() {
         const {cost, switchEditMode} = this.props;
         const dayTime = cost.date.getTime();
         const todayDate = new Date();
         const todayTime = todayDate.getTime();
+        const bToday = this.isToday(cost.date);
         return (
             <div className="card-body row">
                 <div className="col-12 col-lg-4">
-                    <h5 className="card-title">{cost.date ? transformDate(cost.date) : ""}</h5>
+                    <h5 className="card-title">
+                        {cost.date
+                            ? transformDate(cost.date) + (bToday ? " (Сегодня)" : "")
+                            : ""}
+                    </h5>
                     <div>
                        <span className="card-text">Траты: {cost.spended} руб.</span>
                     </div>

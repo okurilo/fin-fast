@@ -32,9 +32,31 @@ export default class DayDisplay extends Component {
                            value={cost.comment}/>
                     </div>
                 </div>
-                <div className="col-12 col-lg-4"></div>
+                <div className="col-12 col-lg-4">
+                    <h5 className="card-title">{cost.date ? transformDate(cost.date) : ""}</h5>
+                    <div>
+                        <input
+                           type="text"
+                           name="spended"
+                           className="form-control-sm w-100"
+                           id={cost.id}
+                           placeholder="Сумма трат за день"
+                           onChange={changeCostValue}
+                           value={cost.spended}/>
+                    </div>
+                    <div>
+                        <textarea
+                           type="text"
+                           name="comment"
+                           className="form-control mt-2"
+                           id={cost.id}
+                           placeholder="Введите коментарий"
+                           onChange={changeCostValue}
+                           value={cost.comment}/>
+                    </div>
+                </div>
                 <div className="col-12 col-lg-3 d-flex flex-column justify-content-end align-items-end">
-                    <div className="">
+                    <div className="d-flex flex-column flex-grow-1 w-100">
                         <h6 className="card-title">Дневной бюджет: {cost.budget} руб.</h6>
                         <h6 className="card-title">Остаток на сегодня: {cost.available} руб.</h6>
                         { (todayTime < dayTime) &&
