@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../../css/Day.css';
 // import { transformDate } from "../../utils/Date";
-import DayDisplay from "./DayDisplay";
-import DayEdit from "./DayEdit";
+import Display from "./Display";
+import Edit from "./Edit";
 
 export default class Day extends Component {
     constructor(props) {
@@ -35,8 +35,8 @@ export default class Day extends Component {
         return (
             <div className={"day card bg-secondary mb-1 " + (editMode ? "day-selected" : "")}>
                 { editMode
-                    ? <DayEdit cost={cost} switchEditMode={this.switchEditMode} changeCostValue={changeCostValue} />
-                    : <DayDisplay cost={cost} switchEditMode={this.switchEditMode} /> }
+                    ? <Edit changeCostValue={changeCostValue} cost={cost} switchEditMode={this.switchEditMode} />
+                    : <Display cost={cost} switchEditMode={this.switchEditMode} /> }
             </div>
         );
     }

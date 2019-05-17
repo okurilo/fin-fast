@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {transformDate} from "../../utils/Date";
 
-export default class DayDisplay extends Component {
+export default class Display extends Component {
     isToday = (date) => {
         const today = new Date();
         console.log(date, today);
@@ -25,7 +25,7 @@ export default class DayDisplay extends Component {
                             : ""}
                     </h5>
                     <div>
-                       <span className="card-text">Траты: {cost.spended} руб.</span>
+                       <span className="card-text">Траты: {(cost.spended < 0) ? "0" : cost.spended } руб.</span>
                     </div>
                     <div>
                         <span className="card-text">{cost.comment}</span>

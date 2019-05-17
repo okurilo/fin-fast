@@ -74,3 +74,10 @@
 .calendar .input-group-text:hover {
   background-color: white;
 }
+
+.input-group-sm .input-group-prepend {
+  margin-right: -4px;
+}
+.input-group-sm .input-group-append {
+  margin-left: -4px;
+}

@@ -17,26 +17,29 @@ export default class Daily extends Component {
     handleSwitchDetailShow = () => {
         this.setState({ showDetail: !this.state.showDetail });
     }
-    handleChangeCostValue = (event) => {
+    handleChangeCostValue = (costId, spending) => {
         const dailyCosts = [...this.props.dailyCosts];
-        const { id, name } = event.currentTarget;
-        let value;
-        switch (name) {
-            case "spended":
-                value = parseInt( event.target.value, 10 ) || '';
-                value = value || 0;
-                break;
-            case "comment":
-            default:
-                value = event.target.value;
-                break;
-        }
+        // const { id, name } = event.currentTarget;
+        // let value;
+        // switch (name) {
+        //     case "spended":
+        //         value = parseInt( event.target.value, 10 ) || '';
+        //         value = value || 0;
+        //         break;
+        //     case "comment":
+        //     default:
+        //         value = event.target.value;
+        //         break;
+        // }
         const callback = (el, index) => {
-            return +el.id === +id;
+            return +el.id === +costId;
         };
         let costIndex = dailyCosts.findIndex(callback);
-        dailyCosts[costIndex][name] = value;
-        
+        dailyCosts[costIndex].spending = spending;
+        dailyCosts[costIndex].spended = spending.reduce((sum, el)=>{ 
+            return el.isloss ? sum + el.value : sum - el.value;
+        }, 0);
+        // console.log(costId, spending)
         this.props.writeToState({field: "dailyCosts", value: dailyCosts});
     }
     render() {
