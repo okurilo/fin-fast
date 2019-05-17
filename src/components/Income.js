@@ -153,10 +153,10 @@ export default class Income extends Component {
                   <option value="20">20</option>
                   <option value="25">25</option>
                   <option value="30">30</option>
-                  <option value="30">35</option>
-                  <option value="30">40</option>
-                  <option value="30">45</option>
-                  <option value="30">50</option>
+                  <option value="35">35</option>
+                  <option value="40">40</option>
+                  <option value="45">45</option>
+                  <option value="50">50</option>
                 </select>
                 <div className="input-group-append">
                   <span style={{width: "4rem"}} className="input-group-text justify-content-center">%</span>
