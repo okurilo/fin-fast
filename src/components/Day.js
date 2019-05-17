@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../css/Day.css';
 import {transformDate} from "../utils/Date";
 
 const style = {
@@ -35,7 +36,7 @@ export default class Day extends Component {
         const {editMode} = this.state;
         const {cost, changeCostValue} = this.props;
         return (
-            <div className={"card bg-secondary mb-1 " + (editMode ? "border border-warning" : "")}>
+            <div className={"day card bg-secondary mb-1 " + (editMode ? "day-selected" : "")}>
                 <div className="card-body row">
                     <div className="col-12 col-lg-6">
                         <h5 className="card-title">{cost.date ? transformDate(cost.date) : ""}</h5>

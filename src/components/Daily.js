@@ -11,7 +11,7 @@ export default class Daily extends Component {
       super(props);
 
       this.state = {
-         showDetail: false
+         showDetail: true
       };
     }
     handleSwitchDetailShow = () => {

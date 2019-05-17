@@ -68,6 +68,6 @@
  }
  
 .daily .card:first-child .card-title i {
-    color: #00456a
+    color: transparent;
  }
  
