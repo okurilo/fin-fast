@@ -3,5 +3,6 @@ export default class MandatoryCost {
         this.id = id;
         this.text = "";
         this.value = 0;
+        this.checked = false;
     }
 }

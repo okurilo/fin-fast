@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MandatoryCost from '../model/MandatoryCosts';
+import '../css/Operation.css';
 
 export default class Operation extends Component {
 
@@ -8,6 +9,18 @@ export default class Operation extends Component {
     const mandatoryCosts = [...this.props.mandatoryCosts];
     // mandatoryCosts.unshift( new MandatoryCost(new Date().getTime()) );
     mandatoryCosts.push( new MandatoryCost(new Date().getTime()) );
+    this.props.writeToState({field: "mandatoryCosts", value: mandatoryCosts});
+  }
+
+  handleChangeCostChecked = (event) => {
+    const id = +event.target.id;
+    const checked = event.target.checked;
+    let mandatoryCosts = [...this.props.mandatoryCosts];
+    mandatoryCosts.forEach((el) => {
+      if (el.id === id) {
+        el.checked = checked;
+      }
+    });
     this.props.writeToState({field: "mandatoryCosts", value: mandatoryCosts});
   }
 
@@ -58,15 +71,28 @@ export default class Operation extends Component {
                 {mandatoryCosts.map((cost)=>{
                     return (
                         <div key={cost.id} className="input-group m-0 mb-2">
+                          <div className={ cost.checked ? "checked" : "d-none" }>
+                          </div>
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <input
+                               id={cost.id}
+                               style={{ width: "1.5rem", height: "1.2rem"}}
+                               defaultChecked={cost.checked}
+                               onClick={this.handleChangeCostChecked}
+                               type="checkbox"
+                               aria-label="Checkbox for following text input" />
+                            </div>
+                          </div>
                           <input
-                           {...cost}
+                           id={cost.id}
                            type="text"
                            className="form-control"
                            onChange={this.handleChangeCostValue}
                            value={cost.value}
                            placeholder="Сумма" aria-label="Сумма" aria-describedby="button-addon4"/>
                           <input
-                           {...cost}
+                           id={cost.id}
                            type="text"
                            className="form-control"
                            onChange={this.handleChangeCostText}
@@ -75,7 +101,7 @@ export default class Operation extends Component {
                           <div className="input-group-append" id="button-addon4">
                             {/* <button className="btn btn-outline-light" type="button">Edit</button> */}
                             <button
-                             {...cost}
+                             id={cost.id}
                              onClick={this.deleteCost}
                              className="border-left btn btn-dark"
                              type="button">x</button>

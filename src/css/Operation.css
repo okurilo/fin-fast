@@ -1,0 +1,11 @@
+.card .checked {
+    background-color: #81c7847a;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    z-index: 50;
+}
+.card .input-group-prepend {
+    z-index: 51;
+}
