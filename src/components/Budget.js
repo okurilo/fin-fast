@@ -69,13 +69,16 @@ class Budget extends Component {
     let days = this.state.days;
     let mandatoryCosts = [...this.state.mandatoryCosts];
     let dailyCosts = [...this.state.dailyCosts];
+    const dailyCostsSpended = dailyCosts.reduce((sum, el) => {
+      return sum + el.spended;
+    }, 0);
     const percentStorage = this.state.percentStorage / 100;
     let total = this.state.total;
     let requiredCosts = _countRequiredCost(mandatoryCosts);
 
     // Calc Total info
     total.storage = parseInt(income * percentStorage, 10) || 0;
-    total.balance = parseInt(income - total.storage, 10) - requiredCosts || 0;
+    total.balance = parseInt(income - total.storage, 10) - requiredCosts - dailyCostsSpended || 0;
     total.budget = parseInt(total.balance / days, 10) || 0;
 
     // Calc Daily info
