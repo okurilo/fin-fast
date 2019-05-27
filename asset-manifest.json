@@ -1,16 +1,16 @@
 {
-  "main.css": "/fin-fast/static/css/main.8ab7dd27.chunk.css",
-  "main.js": "/fin-fast/static/js/main.d293a44a.chunk.js",
-  "main.js.map": "/fin-fast/static/js/main.d293a44a.chunk.js.map",
+  "main.css": "/fin-fast/static/css/main.f0ea8dcc.chunk.css",
+  "main.js": "/fin-fast/static/js/main.86bc99ed.chunk.js",
+  "main.js.map": "/fin-fast/static/js/main.86bc99ed.chunk.js.map",
   "runtime~main.js": "/fin-fast/static/js/runtime~main.ec4e41f0.js",
   "runtime~main.js.map": "/fin-fast/static/js/runtime~main.ec4e41f0.js.map",
   "static/css/2.314692b8.chunk.css": "/fin-fast/static/css/2.314692b8.chunk.css",
   "static/js/2.18be3f6a.chunk.js": "/fin-fast/static/js/2.18be3f6a.chunk.js",
   "static/js/2.18be3f6a.chunk.js.map": "/fin-fast/static/js/2.18be3f6a.chunk.js.map",
   "index.html": "/fin-fast/index.html",
-  "precache-manifest.911555af2093d56e69f849dfaa95e050.js": "/fin-fast/precache-manifest.911555af2093d56e69f849dfaa95e050.js",
+  "precache-manifest.070d1155a22a7d8fd7e8a65f016bd213.js": "/fin-fast/precache-manifest.070d1155a22a7d8fd7e8a65f016bd213.js",
   "service-worker.js": "/fin-fast/service-worker.js",
   "static/css/2.314692b8.chunk.css.map": "/fin-fast/static/css/2.314692b8.chunk.css.map",
-  "static/css/main.8ab7dd27.chunk.css.map": "/fin-fast/static/css/main.8ab7dd27.chunk.css.map",
+  "static/css/main.f0ea8dcc.chunk.css.map": "/fin-fast/static/css/main.f0ea8dcc.chunk.css.map",
   "static/media/font-awesome.min.css": "/fin-fast/static/media/fontawesome-webfont.fee66e71.woff"
 }
