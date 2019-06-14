@@ -32,6 +32,18 @@ class Budget extends Component {
         el.date = new Date(el.date);
         return el;
       });
+      const checkFieldArray = (field) => {
+        return (!Array.isArray(field) || field === undefined) ? [] : field;
+      };
+      const fieldValids = (parsed) => {
+        parsed.mandatoryCosts = checkFieldArray(parsed.mandatoryCosts);
+        parsed.dailyCosts = checkFieldArray(parsed.dailyCosts);
+        parsed.dailyCosts.forEach((el) => {
+          el.spending = checkFieldArray(el.spending);
+        });
+        return parsed;
+      };
+      parsed = fieldValids(parsed);
       this.setState( parsed );
       loadIndFunc(1200);
     } else {
