@@ -81,3 +81,7 @@
 .input-group-sm .input-group-append {
   margin-left: -4px;
 }
+
+.react-datepicker-popper {
+  z-index: 100 !important;
+}
