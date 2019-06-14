@@ -71,7 +71,7 @@ export default class Operation extends Component {
                 {mandatoryCosts.map((cost)=>{
                     return (
                         <div key={cost.id} className="input-group m-0 mb-2">
-                          <div className={ cost.checked ? "checked" : "d-none" }>
+                          <div className={ cost.checked ? "checked slideInLeft" : "d-none" }>
                           </div>
                           <div class="input-group-prepend">
                             <div class="input-group-text">

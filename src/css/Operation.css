@@ -23,3 +23,44 @@
     z-index: 52;
 	/* transform:rotate(-1deg); */
 }
+
+.slideInLeft {
+    -webkit-animation-name: slideInLeft;
+    animation-name: slideInLeft;
+    -webkit-animation-duration: 1s;
+    animation-duration: 0.7s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideInLeft {
+    0% {
+        width: 0%;
+        background-color: transparent;
+        visibility: visible;
+    }
+
+    80% {
+        width: 100%;
+        background-color: transparent;
+    }
+    100% {
+        background-color: #80808069;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        width: 0%;
+        background-color: transparent;
+        visibility: visible;
+    }
+
+    80% {
+        width: 100%;
+        background-color: transparent;
+    }
+    100% {
+        background-color: #80808069;
+    }
+}
