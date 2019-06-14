@@ -78,7 +78,8 @@ class Budget extends Component {
 
     // Calc Total info
     total.storage = parseInt(income * percentStorage, 10) || 0;
-    total.balance = parseInt(income - total.storage, 10) - requiredCosts - dailyCostsSpended || 0;
+    total.balance = parseInt(income - total.storage, 10) - requiredCosts || 0;
+    total.balanceLeft = parseInt(income - total.storage, 10) - requiredCosts - dailyCostsSpended || 0;
     total.budget = parseInt(total.balance / days, 10) || 0;
 
     // Calc Daily info
@@ -156,6 +157,7 @@ class Budget extends Component {
             <Total
              storage={this.state.total.storage}
              balance={this.state.total.balance}
+             balanceLeft={this.state.total.balanceLeft}
              budget={this.state.total.budget}
              startDay={this.state.startDay}
              endDay={this.state.endDay}
