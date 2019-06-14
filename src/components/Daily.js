@@ -53,10 +53,10 @@ export default class Daily extends Component {
                      type="button"
                      className=" w-100 text-center btn btn-primary"
                      onClick={this.handleSwitchDetailShow} >
-                        <div className="d-flex align-items-center">
-                            <i  style={iconStyle}  className={"mr-4 " + btnVis} />
+                        <div className="d-flex align-items-center justify-content-center">
+                            <i style={iconStyle} className={"mr-4 " + btnVis}/>
                             <span>Детализация расходов по дням</span>
-                            <i  style={iconStyle}  className={"ml-4 " + btnVis} />
+                            <i style={iconStyle} className={"ml-4 " + btnVis}/>
                         </div>
                     </button>
                 </div>

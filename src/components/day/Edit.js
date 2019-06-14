@@ -113,7 +113,7 @@ export default class Edit extends Component {
                     }) }
 
                     <div className="d-flex mt-2 justify-content-end mb-2">
-                      <button type="button" className="text-right btn-sm btn-dark border border-warning" onClick={ this.addNewSpend } >Добавить</button>
+                      <button type="button" className="text-right btn-sm btn-dark border border-light" onClick={ this.addNewSpend } >Добавить</button>
                     </div>
                 </div>
                 <div className="col-12 col-lg-3 d-flex flex-column justify-content-end align-items-end">

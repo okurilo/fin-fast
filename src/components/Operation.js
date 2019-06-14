@@ -67,7 +67,7 @@ export default class Operation extends Component {
     return (
         <div className="card text-white bg-primary mt-2">
             <div className="card-body">
-                <h5 className="card-title">Обязательные расходы</h5>
+                <h5 className="card-title text-center">Обязательные расходы</h5>
                 {mandatoryCosts.map((cost)=>{
                     return (
                         <div key={cost.id} className="input-group m-0 mb-2">
